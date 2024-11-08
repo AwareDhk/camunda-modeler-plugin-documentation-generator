@@ -3,7 +3,7 @@ import * as React from 'react'
 import { Modal } from 'camunda-modeler-plugin-helpers/components'
 import {
   DOC_HELP_ACTIVITY_ASSIGNEE_LABEL, DOC_HELP_ACTIVITY_ASSIGNEE_PLACEHOLDER,
-  DOC_HELP_ACTIVITY_DESCRIPTION_LABEL, DOC_HELP_ACTIVITY_DESCRIPTION_PLACEHOLDER,
+  DOC_HELP_ACTIVITY_DESCRIPTION_LABEL, DOC_HELP_ACTIVITY_DESCRIPTION_PLACEHOLDER, DOC_HELP_ACTIVITY_TYPE_LABEL, DOC_HELP_ACTIVITY_TYPE_PLACEHOLDER,
   DOC_HELP_ACTIVITY_NAME_LABEL, DOC_HELP_ACTIVITY_NAME_PLACEHOLDER, DOC_HELP_ACTIVITY_ORDER_LABEL, DOC_HELP_ACTIVITY_ORDER_PLACEHOLDER, DOC_HELP_PROCESS_ID_LABEL, DOC_HELP_PROCESS_ID_PLACEHOLDER,
   DOC_HELP_PROCESS_IS_EXECUTABLE_LABEL, DOC_HELP_PROCESS_IS_EXECUTABLE_PLACEHOLDER,
   DOC_HELP_PROCESS_NAME_LABEL,
@@ -63,6 +63,10 @@ export default function GenerateDocHelp (props: any): JSX.Element {
                     <tr key="key">
                         <td><b>{DOC_HELP_ACTIVITY_ASSIGNEE_LABEL}</b></td>
                         <td className="binding">{DOC_HELP_ACTIVITY_ASSIGNEE_PLACEHOLDER}</td>
+                    </tr>
+                    <tr key="key">
+                        <td><b>{DOC_HELP_ACTIVITY_TYPE_LABEL}</b></td>
+                        <td className="binding">{DOC_HELP_ACTIVITY_TYPE_PLACEHOLDER}</td>
                     </tr>
                     </tbody>
                 </table>

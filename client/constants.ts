@@ -21,3 +21,6 @@ export const DOC_HELP_ACTIVITY_ASSIGNEE_LABEL = 'Description'
 export const DOC_HELP_ACTIVITY_ASSIGNEE_PLACEHOLDER = '{executor}'
 export const DOC_HELP_ACTIVITY_ORDER_LABEL = 'Order'
 export const DOC_HELP_ACTIVITY_ORDER_PLACEHOLDER = '{order}'
+export const DOC_HELP_ACTIVITY_TYPE_LABEL = 'Type'
+export const DOC_HELP_ACTIVITY_TYPE_PLACEHOLDER = '{type}'
+
