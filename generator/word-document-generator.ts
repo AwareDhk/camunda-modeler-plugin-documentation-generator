@@ -31,7 +31,7 @@ function getCallActivity (flowElement: ProcessFlowElement): string {
 function getBoundary (flowElement: ProcessFlowElement): string {
   let executor = '';
     if (flowElement.$type === 'bpmn:BoundaryEvent') {
-     
+
 
       executor += flowElement.eventDefinitions.filter(extElem => extElem.$type === 'bpmn:ErrorEventDefinition').map(extElem => extElem.id ).join(',');
       executor += flowElement.eventDefinitions.filter(extElem => extElem.$type === 'bpmn:MessageEventDefinition').map(extElem => extElem.id ).join(',');
@@ -48,7 +48,7 @@ function getGateway (flowElement: ProcessFlowElement): string {
       {
         executor += "Incoming: \n "
         flowElement.incoming.forEach(function (_value, i) {
-          
+
            executor += (i + 1) + ": " + (flowElement.incoming[i] as unknown as ProcessFlowElement).id + " \n "
 
            if(flowElement.incoming[i].conditionExpression !== undefined && flowElement.outgoing[i].conditionExpression !== null)
@@ -56,8 +56,8 @@ function getGateway (flowElement: ProcessFlowElement): string {
           else{
               executor += " condition: none" + " \n "
           }
-              
-        }); 
+
+        });
       }
 
       if(flowElement.outgoing?.length > 0)
@@ -71,10 +71,10 @@ function getGateway (flowElement: ProcessFlowElement): string {
               executor += "condition" + flowElement.outgoing[i]?.conditionExpression.body + " \n \n"
             else
                 executor += "condition: none (default flow)" + " \n "
-           
-          }); 
+
+          });
         }
-    
+
    }
    return executor
 }
@@ -100,11 +100,18 @@ export async function generateWord (processDiagram: ProcessDiagram, template: Bu
     call: getCallActivity(flowElement)
   }))
 
+  var  confluenceLink = "https://hyperautomation.atlassian.net/wiki/spaces/Camunda/pages/2105737217/BAW+Badge+answers";
+  var  confluencePage = "2105737217/BAW+Badge+answers";
   const JobWorkers: ProcessElement[] = processDiagram.flowElements.filter(flowElement => flowElement?.name !== undefined && flowElement?.name !== '' && getExtensionElementType(flowElement) !== '').map((flowElement, index) => ({
     order: index + 1,
     id: flowElement.id,
-    name: flowElement.name,
-    description: (flowElement.documentation !== undefined && flowElement.documentation.length > 0) ? flowElement.documentation[0].text : '',
+    "workerName": {
+           _type: 'link',
+           text: flowElement.name,  // Optional - if not specified the `target` property will be used
+           target: 'https://hyperautomation.atlassian.net/wiki/spaces/Camunda/pages/' + confluencePage
+     },
+     name: confluenceLink,
+     description: (flowElement.documentation !== undefined && flowElement.documentation.length > 0) ? flowElement.documentation[0].text : '',
     executor: getFlowElementExecutor(flowElement),
     type: getExtensionElementType(flowElement),
     call: getCallActivity(flowElement)

@@ -12461,10 +12461,17 @@ function generateWord(processDiagram, template) {
             type: getExtensionElementType(flowElement),
             call: getCallActivity(flowElement)
         }));
+        var confluenceLink = "https://hyperautomation.atlassian.net/wiki/spaces/Camunda/pages/2105737217/BAW+Badge+answers";
+        var confluencePage = "2105737217/BAW+Badge+answers";
         const JobWorkers = processDiagram.flowElements.filter(flowElement => (flowElement === null || flowElement === void 0 ? void 0 : flowElement.name) !== undefined && (flowElement === null || flowElement === void 0 ? void 0 : flowElement.name) !== '' && getExtensionElementType(flowElement) !== '').map((flowElement, index) => ({
             order: index + 1,
             id: flowElement.id,
-            name: flowElement.name,
+            "workerName": {
+                _type: 'link',
+                text: flowElement.name,
+                target: 'https://hyperautomation.atlassian.net/wiki/spaces/Camunda/pages/' + confluencePage
+            },
+            name: confluenceLink,
             description: (flowElement.documentation !== undefined && flowElement.documentation.length > 0) ? flowElement.documentation[0].text : '',
             executor: getFlowElementExecutor(flowElement),
             type: getExtensionElementType(flowElement),
