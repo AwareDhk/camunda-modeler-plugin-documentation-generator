@@ -100,7 +100,7 @@ export async function generateWord (processDiagram: ProcessDiagram, template: Bu
     call: getCallActivity(flowElement)
   }))
 
-  var  confluenceLink = "https://hyperautomation.atlassian.net/wiki/spaces/Camunda/pages/2105737217/BAW+Badge+answers";
+  var  confluenceLink = "https://hyperautomation.atlassian.net/wiki/spaces/Camunda/pages/";
   var  confluencePage = "2105737217/BAW+Badge+answers";
   const JobWorkers: ProcessElement[] = processDiagram.flowElements.filter(flowElement => flowElement?.name !== undefined && flowElement?.name !== '' && getExtensionElementType(flowElement) !== '').map((flowElement, index) => ({
     order: index + 1,
